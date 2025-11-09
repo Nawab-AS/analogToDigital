@@ -1,3 +1,5 @@
+/* No AI was used for this css */
+
 body {
     margin: 0;
     padding: 0;
@@ -8,4 +10,40 @@ h1 {
     color: #333;
     font-family: Arial, sans-serif;
     text-align: center;
+}
+
+.clock {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid red;
+    padding: 0;
+}
+.minute, .hour {
+    position: relative;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0) 50%, black 50%, black 95%, rgba(0,0,0,0) 95%);
+    left: 50%;
+}
+
+.minute {
+    animation: rotate 1s linear infinite;
+    transform-origin: center;
+}
+
+.hour {
+    animation: rotate calc(60s * 12) linear infinite;
+    transform-origin: center;
+    translate: 0px -100%;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
