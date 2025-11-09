@@ -1,49 +1,68 @@
 /* No AI was used for this css */
 
+[v-cloak] {
+    display: none;
+}
+
+
 body {
     margin: 0;
     padding: 0;
+    height: 100vh;
     background-color: #f9f9f9;
+}
+
+header {
+    padding: 10px;
+    height: 40px;
+}
+
+content {
+    display: block;
+    height: calc(100vh - 60px);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
     color: #333;
     font-family: Arial, sans-serif;
     text-align: center;
+    margin: 0;
+    margin-top: 3px;
 }
 
+
+/*********** Clock ***********/
 .clock {
-    width: 200px;
-    height: 200px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: white;
-    border: 3px solid red;
+    border: 2px solid black;
     padding: 0;
 }
+
+td {
+    padding: 0px;
+}
+
 .minute, .hour {
     position: relative;
     width: 3px;
     height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0) 50%, black 50%, black 95%, rgba(0,0,0,0) 95%);
     left: 50%;
-}
-
-.minute {
-    animation: rotate 1s linear infinite;
-    transform-origin: center;
+    transition: ease-in-out 1s;
 }
 
 .hour {
-    animation: rotate calc(60s * 12) linear infinite;
-    transform-origin: center;
-    translate: 0px -100%;
+    background: linear-gradient(to top, rgba(0,0,0,0) 50%, black 50%, black 85%, rgba(0,0,0,0) 85%);
 }
 
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+.minute {
+    background: linear-gradient(to top, rgba(0,0,0,0) 50%, black 50%, black 95%, rgba(0,0,0,0) 95%);
+    translate: 0px -100%;
 }

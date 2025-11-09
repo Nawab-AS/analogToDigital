@@ -9,12 +9,22 @@
     <script src="https://unpkg.com/vue@3.4.21/dist/vue.global.js"></script>
     <script src="./index.js" defer></script>
 </head>
-<body>
-    <h1>{{ title }}</h1>
+<body v-cloak>
+    <header>
+        <h1>Analog To Digital</h1>
+    </header>
 
-    <div class="clock">
-        <div class="minute"></div>
-        <div class="hour"></div>
-    </div>
+    <content>
+        <table id="clocks">
+            <tr v-for="(handSet, x) in hands" :key="x">
+                <td v-for="(hand, y) in handSet" :key="y">
+                    <div class="clock">
+                        <div class="hour" :style="{ rotate: `${hands[x][y].hour * (360/12)}deg` }"></div>
+                        <div class="minute" :style="{ rotate: `${hands[x][y].minute * (360/60)}deg` }"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </content>
 </body>
 </html>

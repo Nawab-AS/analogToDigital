@@ -1,20 +1,26 @@
 const { createApp, ref } = Vue;
 
-const width = 80;
-const height = 20;
-
-const title = "Analog To Digital";
+const randint = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 const hands = ref([]);
+let width = 8;
+let height = 2;
 
-for (let w = 0; w < width; w++) {
-    hands.value.push([]);
-    for (let h = 0; h < height; h++) {
-        hands.value[w].push({ minute: 0, hour: 0 });
+function onResize() {
+    const margin = 50;
+    hands.value = [];
+    for (let h = 0; h < (window.innerHeight - 60 - 25)/55 -1; h++) {
+        hands.value.push([]);
+        for (let w = 0; w < (window.innerWidth - margin)/55 -1; w++) {
+            hands.value[h].push({ minute: randint(0, 59), hour: randint(0, 11) });
+        }
     }
 }
+onResize();
+window.addEventListener('resize', onResize);
 
+// mount vue
 createApp({
     setup() {
-        return { title, hands };
+        return { width, height, hands };
     }
 }).mount('body');
