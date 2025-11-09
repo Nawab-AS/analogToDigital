@@ -19,17 +19,7 @@ onResize();
 window.addEventListener('resize', onResize);
 
 
-function updateClocks() {
-    /*for (let h = 0; h < height; h++) {
-    for (let w = 0; w < width; w++) {
-        hands.value[h][w].minute = randint(0, 59);
-        hands.value[h][w].hour = randint(0, 11);
-        hands.value[h][w].timing = Math.random() + 0.5;
-        }
-    }*/
-    
-    let number = 1;
-           
+function updateClocks(number) {
     for (let y = 0; y < numbers[number].length; y++) {
         for (let x = 0; x < numbers[number][y].length; x++){
             hands.value[y][x].minute = numbers[number][y][x][0];
@@ -37,6 +27,9 @@ function updateClocks() {
         }
     }
 }
+
+let n=0;
+setInterval(()=>{updateClocks(n);n=(n+1)%10}, 2000)
 
 // mount vue
 const app = createApp({
