@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style.css">
 
     <script src="https://unpkg.com/vue@3.4.21/dist/vue.global.js"></script>
+    <script src="./numbers.js"></script>
     <script src="./index.js" defer></script>
 </head>
 <body v-cloak>
@@ -17,10 +18,10 @@
     <content>
         <table id="clocks">
             <tr v-for="(handSet, x) in hands" :key="x">
-                <td v-for="(hand, y) in handSet" :key="y">
+                <td v-for="(hand, y) in handSet" :key="y" :style="{ width: clockSize + 'px', height: clockSize + 'px' }">
                     <div class="clock">
-                        <div class="hour" :style="{ rotate: `${hands[x][y].hour * (360/12)}deg` }"></div>
-                        <div class="minute" :style="{ rotate: `${hands[x][y].minute * (360/60)}deg` }"></div>
+                        <div class="hour" :style="{ rotate: `${hands[x][y].hour * 90}deg`, transitionDuration: `${hands[x][y].timing}s` }"></div>
+                        <div class="minute" :style="{ rotate: `${hands[x][y].minute * 90}deg`, transitionDuration: `${hands[x][y].timing}s` }"></div>
                     </div>
                 </td>
             </tr>

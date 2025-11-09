@@ -1,0 +1,49 @@
+const rawNumbers = [
+    // 0
+    [
+        " ┌ - - ┐",
+        " | ┌ ┐ |",
+        " | | | |",
+        " | | | |",
+        " | └ ┘ |",
+        " └ - - ┘"
+    ],
+
+    // 1
+    [
+        " ┌ - ┐  ",
+        " └ ┐ |  ",
+        "   | |  ",
+        "   | |  ",
+        " ┌ ┘ └ ┐",
+        " └ - - ┘"
+    ],
+];
+
+
+const s = {
+    " -": [1, 3],
+    " |": [0, 2],
+    " ┌": [1, 2],
+    " ┐": [2, 3],
+    " └": [0, 1],
+    " ┘": [0, 3],
+    "  ": [0.5, 2.5]
+};
+
+let numbers = [];
+for (let n = 0; n < rawNumbers.length; n++) {
+    numbers.push([]);
+    for (let i = 0; i < rawNumbers[n].length; i++) {
+        numbers[n].push([]);
+        for (let j = 0; j < rawNumbers[n][i].length; j+=2) {
+            numbers[n][i].push(s[rawNumbers[n][i].substr(j, 2)]);
+        }
+    }
+    /*for (let i = 0; i < rawNumbers[n].length; j++) {
+        numbers[n].push([]);
+        for (let j = 0; j < rawNumbers[n][i].length/2; j++) {
+            numbers[n][i].push(s[rawNumbers[n][i].substring(j*2, j*2+2)]);
+        }
+    }*/
+}
