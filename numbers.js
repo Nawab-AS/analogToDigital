@@ -120,10 +120,4 @@ for (let n = 0; n < rawNumbers.length; n++) {
             numbers[n][i].push(s[rawNumbers[n][i].substr(j, 2)]);
         }
     }
-    /*for (let i = 0; i < rawNumbers[n].length; j++) {
-        numbers[n].push([]);
-        for (let j = 0; j < rawNumbers[n][i].length/2; j++) {
-            numbers[n][i].push(s[rawNumbers[n][i].substring(j*2, j*2+2)]);
-        }
-    }*/
 }

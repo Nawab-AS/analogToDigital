@@ -20,8 +20,8 @@
             <tr v-for="(handSet, x) in hands" :key="x">
                 <td v-for="(hand, y) in handSet" :key="y" :style="{ width: clockSize + 'px', height: clockSize + 'px' }">
                     <div class="clock">
-                        <div class="hour" :style="{ rotate: `${hands[x][y].hour * 90}deg`, transitionDuration: `${hands[x][y].timing}s` }"></div>
-                        <div class="minute" :style="{ rotate: `${hands[x][y].minute * 90}deg`, transitionDuration: `${hands[x][y].timing}s` }"></div>
+                        <div class="hour" :style="{ rotate: `${hands[x][y].hour * 90}deg`, transitionDuration: `${hands[x][y].timingH}s` }"></div>
+                        <div class="minute" :style="{ rotate: `${hands[x][y].minute * 90}deg`, transitionDuration: `${hands[x][y].timingM}s` }"></div>
                     </div>
                 </td>
             </tr>
