@@ -61,7 +61,7 @@
 
             <div id="modalContent" v-if="resizeAlerted">
                 <p>Warning: The clock may not fit in your window. Try pressing ctrl + - (or command + - on Mac) to zoom out</p>
-                <button id="modalButton" @click="resizeAlerted = false">Its fine</button>
+                <button id="modalButton" @click="resizeAlerted = false; itsFine = true;">Its fine</button>
             </div>
         </div>
     </div>

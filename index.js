@@ -68,10 +68,11 @@ watch(clockStyle, (newStyle) => {
     startClockInterval();
 });
 
+let itsFine = ref(false);
 async function resizeAlert() {
     await nextTick();
     const content = document.getElementById('clocks');
-    if (window.innerWidth < content.clientWidth || window.innerHeight < content.clientHeight) {
+    if ((window.innerWidth < content.clientWidth || window.innerHeight < content.clientHeight) && !itsFine.value) {
         resizeAlerted.value = true;
     } else {
         resizeAlerted.value = false;
@@ -90,7 +91,7 @@ startClockInterval();
 // mount vue
 const app = createApp({
     setup() {
-        return { width, height, hands, clockSize, clockStyle, clockStyles, showModal, timeFormat24, movingColons, resizeAlerted };
+        return { width, height, hands, clockSize, clockStyle, clockStyles, showModal, timeFormat24, movingColons, resizeAlerted, itsFine };
     }
 })
 
