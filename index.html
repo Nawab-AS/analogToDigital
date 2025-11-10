@@ -8,12 +8,22 @@
 
     <script src="https://unpkg.com/vue@3.4.21/dist/vue.global.js"></script>
     <script src="./numbers.js"></script>
+    <script src="./clockStyles.js"></script>
     <script src="./index.js" defer></script>
 </head>
 <body v-cloak>
     <header>
         <h1>Analog To Digital</h1>
     </header>
+
+    <div id="selectDiv">
+        <p>Style</p>
+        <select id="select" v-model="clockStyle">
+            <span v-for:="(style, name) in clockStyles" :key="name" style="display: none;">
+                <option selected :value="name">{{ style.hint }}</option>
+            </span>
+        </select>
+    </div>
 
     <content>
         <table id="clocks">
@@ -26,6 +36,7 @@
                 </td>
             </tr>
         </table>
+        <br />
     </content>
 </body>
 </html>
