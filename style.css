@@ -26,7 +26,7 @@ h1 {
 #selectDiv {
     text-align: center;
     margin: 10px 0px 25px 0px;
-    height: 55px;
+    height: 105px;
 }
 
 #selectDiv p {
@@ -44,9 +44,9 @@ h1 {
 
 content {
     position: absolute;
-    top: 150px;
+    top: 200px;
     width: 100%;
-    min-height: calc(100vh - 150px);
+    height: calc(100vh - 150px);
     height: fit-content;
     margin: 0;
     padding: 0;
@@ -83,6 +83,7 @@ td {
     height: 100%;
     left: 50%;
     transition-timing-function: ease-in-out;
+    border-radius: 10%;
 }
 
 .hour {
@@ -92,4 +93,51 @@ td {
 .minute {
     background: linear-gradient(to top, rgba(0,0,0,0) 50%, black 50%, black 95%, rgba(0,0,0,0) 95%);
     translate: 0px -100%;
+}
+
+
+
+
+/*********** Modal ***********/
+#modalButton {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #cacaca;
+}
+
+#modal {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#modalBlur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(6px);
+    transition-duration: 0.5s;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modalContent {
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #888;
+    width: 300px;
+    text-align: center;
+    z-index: 1001;
 }

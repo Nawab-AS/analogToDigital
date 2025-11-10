@@ -6,8 +6,11 @@ const clockStyles = {
             const now = new Date(Date.now());
             
             // hour
-            let hours = now.getHours()%12;
-            if (hours === 0) hours = 12;
+            let hours = now.getHours();
+            if (!timeFormat24.value) {
+                hours = hours%12;
+                if (hours === 0) hours = 12;
+            }
             displayNumber(hours, 0, 0);
             
             // minute
@@ -28,9 +31,11 @@ const clockStyles = {
             const now = new Date(Date.now());
             
             // hour
-            let hours = now.getHours()%12;
-            if (hours === 0) hours = 12;
-
+            let hours = now.getHours();
+            if (!timeFormat24.value) {
+                hours = hours%12;
+                if (hours === 0) hours = 12;
+            }
             displayNumber(hours, 0, 0);
             
             // minute
@@ -47,8 +52,11 @@ const clockStyles = {
             const now = new Date(Date.now());
             
             // hour
-            let hours = now.getHours()%12;
-            if (hours === 0) hours = 12;
+            let hours = now.getHours();
+            if (!timeFormat24.value) {
+                hours = hours%12;
+                if (hours === 0) hours = 12;
+            }
             displayNumber(hours, 0, 0);
             
             // minute
@@ -67,27 +75,25 @@ const clockStyles = {
 
     
     'traditional2': {
-        grid: {width: 28, height: 6},
+        grid: {width: 18, height: 6},
         hint: "Horizontal (without seconds)",
         onSecond: (updateClocks) => {
             const now = new Date(Date.now());
             
             // hour
-            let hours = now.getHours()%12;
-            if (hours === 0) hours = 12;
+            let hours = now.getHours();
+            if (!timeFormat24.value) {
+                hours = hours%12;
+                if (hours === 0) hours = 12;
+            }
             displayNumber(hours, 0, 0);
             
             // minute
             let minutes = now.getMinutes();
             displayNumber(minutes, 10, 0);
-
-            // second
-            let seconds = now.getSeconds();
-            displayNumber(seconds, 20, 0);
             
             // colons
             displayColon(now.getSeconds()%2 == 1, 8, 0);
-            displayColon(now.getSeconds()%2 == 1, 18, 0);
         },
     },
 }

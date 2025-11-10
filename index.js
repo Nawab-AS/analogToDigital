@@ -5,8 +5,11 @@ const hands = ref([]);
 const clockSize = ref(40);
 const clockStyle = ref(Object.keys(clockStyles)[0]);
 let clockInterval;
-let width = ref(8);
-let height = ref(18);
+const width = ref(8);
+const height = ref(18);
+const showModal = ref(false);
+const timeFormat24 = ref(false);
+const movingColons = ref(true);
 
 
 function updateClocks(number, x1, y1) {
@@ -24,7 +27,11 @@ function displayNumber(number, x1, y1) {
 }
 
 function displayColon(visible, x1, y1) {
-    updateClocks(visible? 10:11, x1, y1);
+    if (movingColons.value) {
+        updateClocks(visible? 10:11, x1, y1);
+    } else {
+        updateClocks(10, x1, y1);
+    }
 }
 
 function startClockInterval() {
@@ -69,7 +76,7 @@ startClockInterval();
 // mount vue
 const app = createApp({
     setup() {
-        return { width, height, hands, clockSize, clockStyle, clockStyles };
+        return { width, height, hands, clockSize, clockStyle, clockStyles, showModal, timeFormat24, movingColons };
     }
 })
 

@@ -23,6 +23,8 @@
                 <option selected :value="name">{{ style.hint }}</option>
             </span>
         </select>
+        <br />
+        <button id="modalButton" @click="showModal = true">Settings</button>
     </div>
 
     <content>
@@ -38,5 +40,25 @@
         </table>
         <br />
     </content>
+
+    <div id="modal" v-if="showModal">
+        <div id="modalBlur">
+            <div id="modalContent">
+                <button id="modalButton" @click="showModal = false">Close</button>
+                <br />
+                <br />
+                <label>
+                    <input type="checkbox" v-model="timeFormat24" />
+                    24-hour Format
+                </label>
+                <br />
+                <br />
+                <label>
+                    <input type="checkbox" v-model="movingColons" />
+                    Moving Colons 
+                </label>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
