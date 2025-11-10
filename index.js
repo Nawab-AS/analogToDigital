@@ -1,4 +1,4 @@
-const { createApp, ref, watch } = Vue;
+const { createApp, ref, watch, nextTick } = Vue;
 
 const randint = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 const hands = ref([]);
@@ -10,6 +10,7 @@ const height = ref(18);
 const showModal = ref(false);
 const timeFormat24 = ref(false);
 const movingColons = ref(true);
+const resizeAlerted = ref(false);
 
 
 function updateClocks(number, x1, y1) {
@@ -67,6 +68,19 @@ watch(clockStyle, (newStyle) => {
     startClockInterval();
 });
 
+async function resizeAlert() {
+    await nextTick();
+    const content = document.getElementById('clocks');
+    if (window.innerWidth < content.clientWidth || window.innerHeight < content.clientHeight) {
+        resizeAlerted.value = true;
+    } else {
+        resizeAlerted.value = false;
+    }
+}
+
+watch([width, height], resizeAlert);
+window.addEventListener('resize', resizeAlert);
+
 
 // start
 initializeHands();
@@ -76,7 +90,7 @@ startClockInterval();
 // mount vue
 const app = createApp({
     setup() {
-        return { width, height, hands, clockSize, clockStyle, clockStyles, showModal, timeFormat24, movingColons };
+        return { width, height, hands, clockSize, clockStyle, clockStyles, showModal, timeFormat24, movingColons, resizeAlerted };
     }
 })
 

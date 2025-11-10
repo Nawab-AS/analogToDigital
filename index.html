@@ -41,9 +41,9 @@
         <br />
     </content>
 
-    <div id="modal" v-if="showModal">
+    <div id="modal" v-if="showModal || resizeAlerted">
         <div id="modalBlur">
-            <div id="modalContent">
+            <div id="modalContent" v-if="showModal">
                 <button id="modalButton" @click="showModal = false">Close</button>
                 <br />
                 <br />
@@ -57,6 +57,11 @@
                     <input type="checkbox" v-model="movingColons" />
                     Moving Colons 
                 </label>
+            </div>
+
+            <div id="modalContent" v-if="resizeAlerted">
+                <p>Warning: The clock may not fit in your window. Try pressing ctrl + - (or command + - on Mac) to zoom out</p>
+                <button id="modalButton" @click="resizeAlerted = false">Its fine</button>
             </div>
         </div>
     </div>
