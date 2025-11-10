@@ -19,7 +19,7 @@
     <div id="selectDiv">
         <p>Style</p>
         <select id="select" v-model="clockStyle">
-            <span v-for:="(style, name) in clockStyles" :key="name" style="display: none;">
+            <span v-for:="(style, name) in clockStyles" :key="name">
                 <option selected :value="name">{{ style.hint }}</option>
             </span>
         </select>

@@ -43,18 +43,14 @@ h1 {
 }
 
 content {
-    position: absolute;
-    top: 200px;
-    width: 100%;
-    height: calc(100vh - 150px);
-    height: fit-content;
+    position: block;
     margin: 0;
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-}    
+}
 
 content table {
     margin-bottom: 30px;
@@ -79,7 +75,7 @@ td {
 
 .minute, .hour {
     position: relative;
-    width: 4px;
+    width: 3px;
     height: 100%;
     left: 50%;
     transition-timing-function: ease-in-out;
@@ -109,7 +105,7 @@ td {
 }
 
 #modal {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100vw;
     height: 100vh;
