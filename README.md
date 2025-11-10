@@ -88,3 +88,8 @@ const clockStyles = {
     }
 }
 ```
+
+
+## Screenshot
+
+![horizontal1](https://hc-cdn.hel1.your-objectstorage.com/s/v3/3dd283be755c81bc59ff4816dc927a8f4ae41cba_image.png)
