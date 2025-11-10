@@ -2,7 +2,7 @@ const clockStyles = {
     'vetical1': {
         grid: {width: 8, height: 18},
         hint: "Vertical (with seconds)",
-        onSecond: () => {
+        frame: () => {
             const now = new Date(Date.now());
             
             // hour
@@ -27,7 +27,7 @@ const clockStyles = {
     'vetical2': {
         grid: {width: 8, height: 12},
         hint: "Vertical (without seconds)",
-        onSecond: (updateClocks) => {
+        frame: () => {
             const now = new Date(Date.now());
             
             // hour
@@ -48,7 +48,7 @@ const clockStyles = {
     'traditional1': {
         grid: {width: 28, height: 6},
         hint: "Horizontal (with seconds)",
-        onSecond: (updateClocks) => {
+        frame: () => {
             const now = new Date(Date.now());
             
             // hour
@@ -77,7 +77,7 @@ const clockStyles = {
     'traditional2': {
         grid: {width: 18, height: 6},
         hint: "Horizontal (without seconds)",
-        onSecond: (updateClocks) => {
+        frame: () => {
             const now = new Date(Date.now());
             
             // hour
@@ -95,5 +95,17 @@ const clockStyles = {
             // colons
             displayColon(now.getSeconds()%2 == 1, 8, 0);
         },
+    },
+
+    "seconds":{
+        grid: {width: 8, height: 6},
+        hint: "Horizontal (seconds only)",
+        frame: ()=>{
+            const now = new Date(Date.now());
+            
+            // seconds
+            let seconds = now.getSeconds();
+            displayNumber(seconds, 0, 0);
+        }
     },
 }

@@ -26,9 +26,9 @@ function displayNumber(number, x1, y1) {
     updateClocks(number % 10, x1 + 4, y1);
 }
 
-function displayColon(visible, x1, y1) {
+function displayColon(inverted, x1, y1) {
     if (movingColons.value) {
-        updateClocks(visible? 10:11, x1, y1);
+        updateClocks(inverted? 10:11, x1, y1);
     } else {
         updateClocks(10, x1, y1);
     }
@@ -36,8 +36,8 @@ function displayColon(visible, x1, y1) {
 
 function startClockInterval() {
     clockInterval = setInterval(()=>{
-        clockStyles[clockStyle.value].onSecond();
-    }, 250);
+        clockStyles[clockStyle.value].frame();
+    }, 50);
 }
 
 
