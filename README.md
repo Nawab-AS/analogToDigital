@@ -1,8 +1,11 @@
 # Analog to Digital
 
-A GRID of analog clocks making a digital clock.
+A GRID of analog clocks that make a digital clock.
+
 
 This project was inspired by [this reddit post](https://www.reddit.com/r/oddlysatisfying/comments/paitjp/a_digital_clock_made_of_analogs).
+
+**None** of this project was created by AI :)
 
 ## Live Demo
 You can try out the live demo [here](http://nawab-as.software/analogToDigital/)!
@@ -91,5 +94,5 @@ const clockStyles = {
 
 
 ## Screenshot
-
 ![horizontal1](https://hc-cdn.hel1.your-objectstorage.com/s/v3/3dd283be755c81bc59ff4816dc927a8f4ae41cba_image.png)
+
